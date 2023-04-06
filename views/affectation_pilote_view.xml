@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="affectation_pilote_view_form" model="ir.ui.view">
+        <field name="name">pdca.affectation_pilote.view.form</field>
+        <field name="model">pdca.affectation_pilote</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="ajouter_action" type="object" string="Definir une action" 
+                    />
+                    <button name="update_action" type="object" string="Renseigner taux d'avancement"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="constat_id" readonly="1"/>
+                        <field name="pilote" />
+                        
+                    </group>
+                    <group>
+                        <field name="action_id" readonly="1" display="action,status"/>
+                            
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="affectation_pilote_view_tree" model="ir.ui.view">
+        <field name="name">pdca.affectation_pilote.view.tree</field>
+        <field name="model">pdca.affectation_pilote</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                
+                <field name="constat_id" />
+                <field name="pilote" />
+                <field name="action_id" />
+            </tree>
+        </field>
+    </record>
+    <record id="affectation_pilote_action" model="ir.actions.act_window">
+        <field name="name">Affectation Pilote</field>
+        <field name="res_model">pdca.affectation_pilote</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+    <menuitem
+        id="pdca_affectation_pilote_menu"
+        name="Affectation Pilote"
+        action="affectation_pilote_action"
+        parent="pdca_constat_menu"
+        sequence="2"/>
+
+</odoo>

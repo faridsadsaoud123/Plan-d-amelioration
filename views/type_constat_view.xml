@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="type_constat_view_form" model="ir.ui.view">
+        <field name="name">pdca.type_constat.view.form</field>
+        <field name="model">pdca.type_constat</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="type_constat_view_tree" model="ir.ui.view">
+        <field name="name">pdca.type_constat.view.tree</field>
+        <field name="model">pdca.type_constat</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="type_constat_action" model="ir.actions.act_window">
+        <field name="name">Type Constat</field>
+        <field name="res_model">pdca.type_constat</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+    <menuitem
+        id="pdca_type_constat_menu"
+        name="Type Constat"
+        action="type_constat_action"
+        parent="pdca_root_menu"
+        sequence="50"/>
+
+</odoo>

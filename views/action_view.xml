@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pdca_action_view_form" model="ir.ui.view">
+        <field name="name">pdca.action.view.form</field>
+        <field name="model">pdca.action</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="valider_action" type="object" string="Valider l'action" class="btn-success"/>
+                    <button name="approuver_action" type="object" string="Approuver l'action" class="btn-warning"/>
+                    <field name="status" widget="statusbar" statusbar_visible="nonentamne,endefinition,enattentevalidation,encours,enattenteaproba,approuve,realise,solde" type="object"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="action" />
+                        <field name="date_creation" />
+                    </group>
+                    <group>
+                        <field name="type_action" />
+                        <field name="pilote" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="risque" />
+                        <field name="cause" />
+                        <field name="taux_avancement" readonly="1" />
+                        <field name="constat_id" />
+                    </group>
+                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="pdca_action_view_tree" model="ir.ui.view">
+        <field name="name">pdca.action.view.tree</field>
+        <field name="model">pdca.action</field>
+        <field name="arch" type="xml">
+            <tree string="" limit="0" >
+                <field name="action" />
+                <field name="date_creation" />
+                <field name="type_action" />
+                <field name="pilote" />
+                <field name="constat_id" />
+                <field name="status"/>
+                <field name="taux_avancement"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="pdca_action_action" model="ir.actions.act_window">
+        <field name="name">Action</field>
+        <field name="res_model">pdca.action</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="pdca_action_menu" name="Action" action="pdca_action_action"
+        parent="pdca_root_menu" sequence="40"/>
+</odoo>
