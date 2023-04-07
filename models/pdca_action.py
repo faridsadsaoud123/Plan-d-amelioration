@@ -33,14 +33,15 @@ class Action(models.Model):
             self.constat_id.status='traite'
         else:
             self.status='solde'
-            verify=True
+            """ verify=True
             actions_records=self.env['pdca.action'].search([('constat_id','in',self.constat_id)])
             for action in actions_records:
                 if action:
                     if action.status!='solde':
                        verify=False 
+                    else: continue
             if verify:
-                self.constat_id.status='solde'
+                self.constat_id.status='solde' """
                         
 
     def creer_action_definie_url(self):

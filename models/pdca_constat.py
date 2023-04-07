@@ -68,3 +68,14 @@ class Constat(models.Model):
         record = super(Constat, self).create(vals)
         record.send_mail_notif()
         return record
+    
+    @api.depends('action_ids.status')
+    def _changer_status(self):
+        for record in self :
+            actions_states=record.action_ids.mapped('status')
+            verify=True
+            for state in actions_states:
+                if state != 'solde':
+                    record.status='solde'
+                else: continue
+
