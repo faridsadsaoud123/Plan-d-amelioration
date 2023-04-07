@@ -47,7 +47,8 @@
                 <field name="activite" />
                 <field name="processus" />
                 <field name="status" decoration-danger="status == 'annule'" decoration-success="status == 'solde'" decoration-primary="status == 'encours'" decoration-muted="status == 'ouvert'" decoration-warning="status == 'traite'"    widget="badge"/>
-
+                <field name="action_ids">
+                </field>
             </tree>
         </field>
     </record>

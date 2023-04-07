@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="0">
+        <record id="creation_constat_template" model="mail.template">
+            <field name="name">Creation d'un constat</field>
+            <field name="model_id" ref="Plan-d-Amelioration-main.model_pdca_constat"/>
+            <field name="subject">Creation d'un constat</field>
+            <field name="email_from">${user.email}</field>
+            <field name="email_to">${object.pass_dir_pilote_emails()}</field>
+            <field name="body_html" type="html">
+                <h3>Un Nouveau Constat</h3>  
+                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                        <tbody>     
+                            <tr>
+                                <td align="center" style="min-width: 590px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                        <tr><td valign="top" style="font-size: 20px;">
+                                            <div>
+                                                Bonjour <br/>
+                                                Un nouveau constat est attribue a votre direction 
+                                                <br/>
+                                                <div style="margin: 16px 0px 16px 0px;">
+                                                    <a href="${object.creer_constat_url()}"
+                                                        style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:25px;">
+                                                        voir le constat
+                                                    </a>
+                                                </div>
+                                               <br/><br/>
+                                               
+                                            </div>
+                                        </td></tr>
+                                        <tr><td style="text-align:center;">
+                                        <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                        </td></tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>  
+            </field>
+        </record>
+        <record id="affectation_pilote_template" model="mail.template">
+            <field name="name">Affectation d'un pilote</field>
+            <field name="model_id" ref="Plan-d-Amelioration-main.model_pdca_affectation_pilote"/>
+            <field name="subject">Constat affecte</field>
+            <field name="email_from">${user.email}</field>
+            <field name="email_to">${object.pilote.email}</field>
+            <field name="body_html" type="html">
+                <h3>Un Nouveau Constat</h3>  
+                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                        <tbody>     
+                            <tr>
+                                <td align="center" style="min-width: 590px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                        <tr><td valign="top" style="font-size: 20px;">
+                                            <div>
+                                                Bonjour <br/>
+                                                Voici le constat que vous allez traiter
+                                                <br/>
+                                                <div style="margin: 16px 0px 16px 0px;">
+                                                    <a href="${object.creer_affectation_pilote_url()}"
+                                                        style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:25px;">
+                                                        Voir le constat
+                                                    </a>
+                                                </div>
+                                               <br/><br/>
+                                               
+                                            </div>
+                                        </td></tr>
+                                        <tr><td style="text-align:center;">
+                                        <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                        </td></tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>  
+            </field>
+        </record>
+        <record id="action_definie_template" model="mail.template">
+                <field name="name">Definition d'action</field>
+                <field name="model_id" ref="Plan-d-Amelioration-main.model_pdca_action"/>
+                <field name="subject">Action definie</field>
+                <field name="email_from">${user.email}</field>
+                
+                <field name="body_html" type="html">
+                    <h3>Action</h3>  
+                        <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                            <tbody>     
+                                <tr>
+                                    <td align="center" style="min-width: 590px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                            <tr><td valign="top" style="font-size: 20px;">
+                                                <div>
+                                                    Bonjour <br/>
+                                                    Une action est definie pour traiter le constat que vous allez creer
+                                                    <br/>
+                                                    Vous pouvez la valider ou la refuser
+                                                    <br/>
+                                                    <div style="margin: 16px 0px 16px 0px;">
+                                                        <a href="${object.creer_action_definie_url()}"
+                                                            style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:25px;">
+                                                            Voir le l'action
+                                                        </a>
+                                                    </div>
+                                                <br/><br/>
+                                                
+                                                </div>
+                                            </td></tr>
+                                            <tr><td style="text-align:center;">
+                                            <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                            </td></tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>  
+                </field>
+            </record>
+            <record id="action_redefinie_template" model="mail.template">
+                    <field name="name">Redefinition d'action</field>
+                    <field name="model_id" ref="Plan-d-Amelioration-main.model_pdca_action"/>
+                    <field name="subject">Action a redefinie</field>
+                    <field name="email_from">${user.email}</field>
+                    
+                    <field name="body_html" type="html">
+                        <h3>Action</h3>  
+                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>     
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr><td valign="top" style="font-size: 20px;">
+                                                    <div>
+                                                        Bonjour <br/>
+                                                        Cette action est a redifinie
+                                                        
+                                                        <div style="margin: 16px 0px 16px 0px;">
+                                                            <a href="${object.creer_action_definie_url()}"
+                                                                style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:25px;">
+                                                                Voir le l'action
+                                                            </a>
+                                                        </div>
+                                                    <br/><br/>
+                                                    
+                                                    </div>
+                                                </td></tr>
+                                                <tr><td style="text-align:center;">
+                                                <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                </td></tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>  
+                    </field>
+            </record>
+            <record id="taux_avancement_template" model="mail.template">
+                    <field name="name">Taux d'avancement</field>
+                    <field name="model_id" ref="Plan-d-Amelioration-main.model_pdca_affectation_pilote"/>
+                    <field name="subject">Taux d'avancement</field>
+                    <field name="email_from">${user.email}</field>
+                    
+                    <field name="body_html" type="html">
+                        <h3>Taux d'avancement</h3>  
+                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>     
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr><td valign="top" style="font-size: 20px;">
+                                                    <div>
+                                                        Bonjour <br/>
+                                                        Le temps d'avancement est a 100%,
+                                                        
+                                                        <div style="margin: 16px 0px 16px 0px;">
+                                                            <a href="${object.creer_taux_avancement_constat_url()}"
+                                                                style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:25px;">
+                                                                Voir plus de details
+                                                            </a>
+                                                        </div>
+                                                    <br/><br/>
+                                                    
+                                                    </div>
+                                                </td></tr>
+                                                <tr><td style="text-align:center;">
+                                                <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                </td></tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>  
+                    </field>
+            </record>
+    
+    <record id="validation_template" model="mail.template">
+                    <field name="name">Validation d'une action</field>
+                    <field name="model_id" ref="Plan-d-Amelioration-main.model_pdca_action"/>
+                    <field name="subject">Action valide</field>
+                    <field name="email_from">${user.email}</field>
+                    
+                    <field name="body_html" type="html">
+                        <h3>Taux d'avancement</h3>  
+                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>     
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr><td valign="top" style="font-size: 20px;">
+                                                    <div>
+                                                        Bonjour <br/>
+                                                        L'action est valide,vous devez nous renseigner sur le taux d'avancement
+                                                        
+                                                        <div style="margin: 16px 0px 16px 0px;">
+                                                            <a href="${object.creer_action_definie_url()}"
+                                                                style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:25px;">
+                                                                L'action
+                                                            </a>
+                                                        </div>
+                                                    <br/><br/>
+                                                    
+                                                    </div>
+                                                </td></tr>
+                                                <tr><td style="text-align:center;">
+                                                <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                </td></tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>  
+                    </field>
+            </record>
+    </data>
+</odoo>

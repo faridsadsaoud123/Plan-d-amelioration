@@ -34,6 +34,7 @@
         'views/templates.xml',
         'views/action_view.xml',
         'views/affectation_pilote_view.xml',
+        'data/mail-template.xml'
 
     ],
     # only loaded in demonstration mode

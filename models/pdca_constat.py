@@ -1,5 +1,9 @@
 from odoo import fields, models,api
 
+import logging
+
+
+
 class Constat(models.Model):
     _name = "pdca.constat"
     _description = "Constats"
@@ -33,3 +37,34 @@ class Constat(models.Model):
     def annuler_constat(self):
         self.status='annule'
     
+    def creer_constat_url(self):
+        
+        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        constat_form_url = '/web#id=%d&action=139&model=pdca.constat&view_type=form&cids=&menu_id=109' % self.id
+        
+        return base_url + constat_form_url
+    
+    def pass_dir_pilote_emails(self):
+        dir_pilote_ids=self.direction_pilote.ids
+        dir_pilote_records=self.env['pdca.direction'].search([('id','in',dir_pilote_ids)])
+        personnes_concernes=''
+        for dir_pilote in dir_pilote_records:
+            if dir_pilote.directeur.email not in personnes_concernes:
+                personnes_concernes+=dir_pilote.directeur.email+','
+        personnes = personnes_concernes.rstrip(",")
+        return personnes
+
+    def send_mail_notif(self):
+
+        template_id = self.env.ref('Plan-d-Amelioration-main.creation_constat_template')
+
+        for rec in self:
+            self.creer_constat_url()
+            template_id.send_mail(rec.id, force_send=True)
+        return
+    
+    @api.model
+    def create(self, vals):
+        record = super(Constat, self).create(vals)
+        record.send_mail_notif()
+        return record
