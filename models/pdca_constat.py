@@ -76,6 +76,8 @@ class Constat(models.Model):
             verify=True
             for state in actions_states:
                 if state != 'solde':
-                    record.status='solde'
+                    verify=False
+                    break
                 else: continue
-
+            if verify : 
+                record.status='solde'
