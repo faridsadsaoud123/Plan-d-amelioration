@@ -1,5 +1,4 @@
-from odoo import fields, models,api
-
+from odoo import fields, models,api,_
 import logging
 
 
@@ -8,9 +7,10 @@ class Constat(models.Model):
     _name = "pdca.constat"
     _description = "Constats"
     _inherit = ['mail.thread', 'mail.activity.mixin']
-    document = fields.Binary('Document:')
-    name = fields.Text('Constat:')
-    type_constat = fields.Many2one('pdca.type_constat',string="Type Constat")
+    document = fields.Binary('Document')
+    name = fields.Text('Constat')
+    code=fields.Char(string='Code',required=True,readonly=True,default=lambda self:_('New'))
+    type_constat = fields.Many2one('pdca.type_constat',string="Type de Constat")
     direction_concerne = fields.Many2one('pdca.direction', string="Direction Concernees")
     origine= fields.Many2one('pdca.origine',string="Origine")
     activite = fields.Many2one('pdca.unite',string="Activite",domain="[('direction','=',direction_pilote)]")
@@ -65,6 +65,9 @@ class Constat(models.Model):
     
     @api.model
     def create(self, vals):
+       
+        if vals.get('code',_('New'))==_('New'):
+            vals['code']=self.env['ir.sequence'].next_by_code('pdca.constat') or _('New')
         record = super(Constat, self).create(vals)
         record.send_mail_notif()
         return record

@@ -31,6 +31,6 @@
         <field name="view_mode">tree,form</field>
     </record>
     <menuitem id="pdca_origine_menu" name="Origine"
-        action="pdca_origine_action" parent="pdca_root_menu"
+        action="pdca_origine_action" parent="pdca_constat_menu"
         sequence="40"/>
 </odoo>

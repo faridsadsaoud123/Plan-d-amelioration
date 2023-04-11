@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="employe_view_form" model="ir.ui.view">
+        <field name="name">pdca.employe.view.form</field>
+        <field name="model">pdca.employe</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="user_id"/>
+                        <field name="direction_id" />
+                        <field name="matricule_cnas" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="employe_view_tree" model="ir.ui.view">
+        <field name="name">pdca.employe.view.tree</field>
+        <field name="model">pdca.employe</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="user_id"/>
+                <field name="direction_id" />
+                <field name="matricule_cnas" />
+            </tree>
+        </field>
+    </record>
+    <record id="employe_action" model="ir.actions.act_window">
+        <field name="name">Employes</field>
+        <field name="res_model">pdca.employe</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+    <menuitem
+        id="pdca_employe_menu"
+        name="Employe"
+        action="employe_action"
+        parent="pdca_administration_menu"
+        sequence="50"/>
+
+</odoo>

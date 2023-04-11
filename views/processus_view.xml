@@ -36,7 +36,7 @@
     </record>
 
     <menuitem id="pdca_processus_menu" name="Processus"
-        action="pdca_processus_action" parent="pdca_root_menu"
+        action="pdca_processus_action" parent="pdca_administration_menu"
         sequence="30"/>
 
 </odoo>

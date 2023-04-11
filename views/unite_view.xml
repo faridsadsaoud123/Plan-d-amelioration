@@ -38,5 +38,8 @@
         <field name="res_model">pdca.unite</field>
         <field name="view_mode">tree,form</field>
     </record>
+        <menuitem id="pdca_unite_menu" name="Unites" action="pdca_unite_action"
+                parent="pdca_administration_menu" sequence="20"/>
 
+    
 </odoo>

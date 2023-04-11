@@ -34,7 +34,7 @@
         id="pdca_type_constat_menu"
         name="Type Constat"
         action="type_constat_action"
-        parent="pdca_root_menu"
+        parent="pdca_constat_menu"
         sequence="50"/>
 
 </odoo>

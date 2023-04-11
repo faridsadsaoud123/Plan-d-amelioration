@@ -24,10 +24,12 @@
                     <group>
                         <field name="risque" />
                         <field name="cause" />
-                        <field name="taux_avancement" readonly="1" />
+                        <field name="taux_avancement" readonly="1" widget="progress_bar"/>
                         <field name="constat_id" />
                     </group>
-                    
+                    <group >
+                        <field name="motif_rejet"/>
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -44,7 +46,7 @@
                 <field name="pilote" />
                 <field name="constat_id" />
                 <field name="status"/>
-                <field name="taux_avancement"/>
+                <field name="taux_avancement" widget="progress_bar"/>
             </tree>
         </field>
     </record>

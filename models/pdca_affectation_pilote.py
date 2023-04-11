@@ -5,7 +5,7 @@ class AffectationPilote(models.Model):
     _rec_name='pilote'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     constat_id=fields.Many2one('pdca.constat','Constat')
-    pilote = fields.Many2one('res.users',"Pilote d'action")
+    pilote = fields.Many2one('pdca.employe',"Pilote d'action")
     action_id=fields.Many2one('pdca.action','Action',
     domain=[('constat_id','=',constat_id)]
     )
@@ -20,9 +20,9 @@ class AffectationPilote(models.Model):
         }
     def creer_taux_avancement_constat_url(self):
         base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
-        constat_form_url = '/web#id=%d&action=142&model=pdca.action&view_type=form&cids=1&menu_id=109' % self.action_id.id
+        action_form_url = '/web#id=%d&action=142&model=pdca.action&view_type=form&cids=1&menu_id=109' % self.action_id.id
         
-        return base_url + constat_form_url
+        return base_url + action_form_url
     
 
     def send_taux_avancement_notification(self):
@@ -50,9 +50,9 @@ class AffectationPilote(models.Model):
     def creer_affectation_pilote_url(self):
         
         base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
-        constat_form_url = '/web#id=%d&action=145&model=pdca.affectation_pilote&view_type=form&cids=&menu_id=109' % self.id
+        pilote_form_url = '/web#id=%d&action=145&model=pdca.affectation_pilote&view_type=form&cids=&menu_id=109' % self.id
         
-        return base_url + constat_form_url
+        return base_url + pilote_form_url
     def send_mail_notif(self):
 
         template_id = self.env.ref('Plan-d-Amelioration-main.affectation_pilote_template')

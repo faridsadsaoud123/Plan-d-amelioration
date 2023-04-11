@@ -14,7 +14,7 @@
                     <group >
                         <field name="directeur"/>
                         <field name="unite_ids">
-                        
+                        <field name="referent" />
                         </field>
                     </group>
                 </sheet>
@@ -42,10 +42,10 @@
     </record>
 
     <menuitem id="pdca_root_menu" name="Plan Damelioration" sequence="10"/>
+    <menuitem id="pdca_administration_menu" name="Administration" sequence="10" parent="pdca_root_menu"/>
+
     <menuitem id="pdca_direction_menu" name="Directions"
-                 action="pdca_direction_action" parent="pdca_root_menu" sequence="10"/>
-    
-    <menuitem id="pdca_unite_menu" name="Les Unites" action="pdca_unite_action"
-                parent="pdca_root_menu" sequence="20"/>
+                 action="pdca_direction_action" parent="pdca_administration_menu" sequence="10"/>
+
 
 </odoo>

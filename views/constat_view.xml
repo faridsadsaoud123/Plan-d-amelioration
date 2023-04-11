@@ -11,7 +11,13 @@
                     <button name="annuler_constat" type="object" string="Annuler le constat" class="btn-danger"/>
                     <field name="status" widget="statusbar" statusbar_visible="ouvert,encours,traite,solde" type="object"/>
                 </header>
+                
                 <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="code" />
+                        </h1>
+                    </div>
                     <group>
                         <field name="document" />
                     </group>
@@ -39,7 +45,7 @@
         <field name="model">pdca.constat</field>
         <field name="arch" type="xml">
             <tree string="" limit="0" decoration-success="status == 'solde'">
-                <field name="document" />
+                <field name="code" />
                 <field name="name" />
                 <field name="type_constat" />
                 
