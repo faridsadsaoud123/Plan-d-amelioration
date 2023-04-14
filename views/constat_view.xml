@@ -23,6 +23,8 @@
                     </group>
                     <group>
                         <field name="name" />
+                        <field name="date_creation" />
+    
                     </group>
                     <group>
                         <field name="type_constat" />
@@ -48,7 +50,7 @@
                 <field name="code" />
                 <field name="name" />
                 <field name="type_constat" />
-                
+                <field name="date_creation" />
                 <field name="direction_concerne" widget="many2onetags"/>
                 <field name="activite" />
                 <field name="processus" />

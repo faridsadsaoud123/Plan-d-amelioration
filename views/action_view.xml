@@ -7,17 +7,19 @@
         <field name="arch" type="xml">
             <form string="">
                 <header>
-                    <button name="redefinir_action" type="object" string="Action a redefinir"/>
-                    <button name="valider_action" type="object" string="Valider l'action" class="btn-success"/>
-                    <button name="approuver_action" type="object" string="Approuver l'action" class="btn-warning"/>
+                    
                     <field name="status" widget="statusbar" statusbar_visible="nonentamne,endefinition,enattentevalidation,encours,enattenteaproba,approuve,realise,solde" type="object"/>
                 </header>
                 <sheet>
+                    <group >
+                        <button name="redefinir_action" type="object" string="Action a redefinir" class="btn-info"/>
+                    </group>
                     <group>
                         <field name="action" />
                         <field name="date_creation" />
                     </group>
                     <group>
+                        <field name="date_fin_previsionnelle" />
                         <field name="type_action" />
                         <field name="pilote" readonly="1"/>
                     </group>
@@ -30,7 +32,14 @@
                     <group >
                         <field name="motif_rejet"/>
                     </group>
+                    <group >
+                        <button name="valider_action" type="object" string="Valider" class="btn-success" confirm="Etes-vous sure de valider cette action"/>
+                        <button name="abandonner_action" type="object" string="Abandonner" class="btn-danger" confirm="Etes-vous sure d'abandonner cette action"/>
+                        <button name="approuver_action" type="object" string="Approuver" class="btn-primary"/>
+                        <button name="desapprouver_action" type="object" string="Desapprouver" class="btn-warning"/>
+                    </group>                             
                 </sheet>
+               
             </form>
         </field>
     </record>
@@ -41,12 +50,11 @@
         <field name="arch" type="xml">
             <tree string="" limit="0" >
                 <field name="action" />
-                <field name="date_creation" />
                 <field name="type_action" />
                 <field name="pilote" />
                 <field name="constat_id" />
                 <field name="status"/>
-                <field name="taux_avancement" widget="progress_bar"/>
+                <field name="taux_avancement" widget="progressbar"/>
             </tree>
         </field>
     </record>
